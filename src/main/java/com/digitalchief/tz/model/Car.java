@@ -54,4 +54,8 @@ public class Car {
     @JsonProperty("car_cost")
     @Column(name = "car_cost")
     private String carCost;
+
+    @JsonProperty("sales")
+    @Column(name = "sales")
+    private boolean sales;
 }
