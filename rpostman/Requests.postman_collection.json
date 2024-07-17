@@ -1,0 +1,349 @@
+{
+	"info": {
+		"_postman_id": "2bd36912-3336-4dee-996b-79dab8face1a",
+		"name": "Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29559810"
+	},
+	"item": [
+		{
+			"name": "CarShop",
+			"item": [
+				{
+					"name": "Получить список всех автосалонов",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/allShop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"allShop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение информации выбранного автосалона",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getShop/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getShop",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменение информации об автосалоне",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/updateShopInfo/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updateShopInfo",
+								"1"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "АвтоЛюкс",
+									"disabled": true
+								},
+								{
+									"key": "address",
+									"value": "st.WallStreet,h.52,c.New York",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавить машину в автосалон",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 21,\r\n        \"car_brand\": \"Porsche\",\r\n        \"car_model\": \"Cayenne\",\r\n        \"car_generation\": \"(PO536)\",\r\n        \"car_age\": 3,\r\n        \"car_mileage\": 50000,\r\n        \"car_condition\": \"б/у\",\r\n        \"car_cost\": \"49700\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addCarsIntoShop/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addCarsIntoShop",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание автосалона",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"car_shop_address\": \"st.Yanki Luchiny,h.52,f.25,c.Saint-Petersburg\",\r\n    \"car_shop_name\": \"LamoEsthetics\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/createShop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createShop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление выбранного автосалона",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/deleteShop/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"deleteShop",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление автомобиля из выбранного автосалона",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/deleteCarIntoShop/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"deleteCarIntoShop",
+								"18"
+							],
+							"query": [
+								{
+									"key": "delete_car_id",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Car",
+			"item": [
+				{
+					"name": "Получить список машин",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/allCars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"allCars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Машины которые не находятся в автосалоне",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getCarsWithoutShop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getCarsWithoutShop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение информации о выбранном автомобиле",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getCar/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getCar",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновить информацию об автомобиле",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"car_brand\": \"Porsche\",\r\n    \"car_model\": \"Cayenne\",\r\n    \"car_generation\": \"(PO536)\",\r\n    \"car_age\": 3,\r\n    \"car_mileage\": 50000,\r\n    \"car_condition\": \"б/у\",\r\n    \"car_cost\": \"49700\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/updateCarInfo/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updateCarInfo",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавить автомобиль",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"car_brand\": \"Ferrari\",\r\n    \"car_model\": \"California\",\r\n    \"car_generation\": \"I Рестайлинг\",\r\n    \"car_age\": 8,\r\n    \"car_mileage\": 100000,\r\n    \"car_condition\": \"б/у\",\r\n    \"car_cost\": \"100800\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addCar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addCar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить выбранную машину",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/deleteCar/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"deleteCar",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение списка проданных автомобилей",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/salesCarsList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"salesCarsList"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
