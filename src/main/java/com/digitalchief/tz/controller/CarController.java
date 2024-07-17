@@ -41,9 +41,9 @@ public class CarController {
     }
 
     @PostMapping(value = "/addCar", produces = "application/json")
-    public HttpStatus addShop(@RequestBody String body) {
+    public HttpStatus addShop(@RequestBody String newCar) {
         try {
-            Car car = objectMapper.readValue(body, Car.class);
+            Car car = objectMapper.readValue(newCar, Car.class);
             carRepository.save(car);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
@@ -62,9 +62,9 @@ public class CarController {
     }
 
     @PutMapping(value = "/updateCarInfo/{id}", produces = "application/json")
-    public HttpStatus updateShop(@RequestBody String body, @PathVariable Long id) {
+    public HttpStatus updateShop(@RequestBody String updateCar, @PathVariable Long id) {
         try {
-            car = objectMapper.readValue(body, Car.class);
+            car = objectMapper.readValue(updateCar, Car.class);
             car.setId(id);
             carRepository.save(car);
             return HttpStatus.OK;

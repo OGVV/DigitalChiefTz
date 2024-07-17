@@ -49,9 +49,9 @@ public class CarShopController {
     }
 
     @PostMapping(value = "/createShop", produces = "application/json")
-    public HttpStatus addShop(@RequestBody String body) {
+    public HttpStatus addShop(@RequestBody String createShop) {
         try {
-            carShop = objectMapper.readValue(body, CarShop.class);
+            carShop = objectMapper.readValue(createShop, CarShop.class);
             carShopRepository.save(carShop);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
@@ -60,10 +60,10 @@ public class CarShopController {
     }
 
     @PostMapping(value = "/addCarsIntoShop/{id}", produces = "application/json")
-    public HttpStatus chooseCars(@PathVariable Long id, @RequestBody String body) {
+    public HttpStatus chooseCars(@PathVariable Long id, @RequestBody String newCarsList) {
         carShop = carShopRepository.findById(id).orElseThrow();
         try {
-            Set<Car> cars = objectMapper.readValue(body, new TypeReference<>() {
+            Set<Car> cars = objectMapper.readValue(newCarsList, new TypeReference<>() {
             });
             for (Car car :
                     cars) {
