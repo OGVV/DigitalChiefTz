@@ -7,7 +7,6 @@ import com.digitalchief.tz.repository.CarShopRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -60,7 +59,7 @@ public class CarShopController {
     }
 
     @PostMapping(value = "/addCarsIntoShop/{id}", produces = "application/json")
-    public HttpStatus chooseCars(@PathVariable Long id, @RequestBody String newCarsList) {
+    public HttpStatus addCarsIntoShop(@PathVariable Long id, @RequestBody String newCarsList) {
         carShop = carShopRepository.findById(id).orElseThrow();
         try {
             Set<Car> cars = objectMapper.readValue(newCarsList, new TypeReference<>() {
