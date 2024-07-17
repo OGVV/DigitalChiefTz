@@ -1,7 +1,6 @@
 package com.digitalchief.tz.controller;
 
 import com.digitalchief.tz.model.Car;
-import com.digitalchief.tz.model.CarShop;
 import com.digitalchief.tz.repository.CarRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
