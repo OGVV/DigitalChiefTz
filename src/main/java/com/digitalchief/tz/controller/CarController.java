@@ -40,7 +40,7 @@ public class CarController {
         }
     }
 
-    @PostMapping(value = "/addCar",produces = "application/json")
+    @PostMapping(value = "/addCar", produces = "application/json")
     public HttpStatus addShop(@RequestBody String body) {
         try {
             Car car = objectMapper.readValue(body, Car.class);
@@ -51,7 +51,7 @@ public class CarController {
         return HttpStatus.CREATED;
     }
 
-    @GetMapping(value = "/getCarsWithoutShop",produces = "application/json")
+    @GetMapping(value = "/getCarsWithoutShop", produces = "application/json")
     public String choseCars() {
         List<Car> carsWithoutShop = carRepository.findByCarShopNull();
         try {
@@ -78,5 +78,14 @@ public class CarController {
         car = carRepository.findById(id).orElseThrow();
         carRepository.delete(car);
         return HttpStatus.OK;
+    }
+
+    @GetMapping(value = "/salesCarsList", produces = "application/json")
+    public String salesCarView() {
+        try {
+            return objectMapper.writeValueAsString(carRepository.findBySalesTrue());
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
